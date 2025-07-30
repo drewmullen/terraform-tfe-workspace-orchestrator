@@ -6,6 +6,7 @@ locals {
   individual_workspace_vsids                  = flatten([for workspace, vsids in local.individual_workspace_vsids_map : [for vsid in vsids : "${workspace}/${vsid}"]])
 }
 
+
 resource "tfe_workspace" "main" {
   for_each = var.workspaces
 
